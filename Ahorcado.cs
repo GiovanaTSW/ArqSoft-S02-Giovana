@@ -1,4 +1,8 @@
-﻿namespace Ahorcado
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Ahorcado
 {
     public class Juego
     {

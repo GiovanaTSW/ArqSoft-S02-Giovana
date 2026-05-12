@@ -9,6 +9,7 @@
         public string PalabraSecreta => _palabraSecreta;
         public List<char> LetrasUsadas => _letrasUsadas;
         public int IntentosRestantes => _intentosRestantes;
+        public bool MostrarPista => _intentosRestantes <= 3;
 
         public MotorAhorcado(IRepositorioPalabras repositorio)
         {
