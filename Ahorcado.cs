@@ -4,7 +4,7 @@
     {
         private List<string> _palabras = new()
         {
-            "arquitectura", "interfaz", "polimorfismo", "encapsulamiento", "herencia", "alienigena", "tilapia", "Giovana"
+            "arquitectura", "interfaz", "polimorfismo", "encapsulamiento", "herencia", "alienigena", "tilapia"
         };
         private string _palabraSecreta;
         private List<char> _letrasUsadas;
