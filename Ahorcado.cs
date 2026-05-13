@@ -8,7 +8,7 @@
         };
         private string _palabraSecreta;
         private List<char> _letrasUsadas;
-        private int _intentosRestantes;
+        private int _intentosRestantes; 
 
         public Juego()
         {
