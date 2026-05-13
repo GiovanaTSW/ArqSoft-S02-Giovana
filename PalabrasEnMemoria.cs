@@ -2,15 +2,25 @@
 {
     public class PalabrasEnMemoria : IRepositorioPalabras
     {
-        private readonly List<string> _palabras = new()
+        private readonly Dictionary<string, List<string>> _categorias = new()
         {
-            "arquitectura", "interfaz", "polimorfismo", "encapsulamiento", "herencia", "alienigena", "tilapia"
+            ["Arquitectura"] = new() { "arquitectura", "componente", "descomposicion", "dependencia", "acoplamiento" },
+            ["POO"] = new() { "polimorfismo", "encapsulamiento", "herencia", "abstraccion", "clase" },
+            [".NET"] = new() { "ensamblado", "namespace", "interfaz", "delegado", "middleware" }
         };
+
+        private readonly string _categoriaElegida;
+
+        public PalabrasEnMemoria(string categoria)
+        {
+            _categoriaElegida = categoria;
+        }
 
         public string ObtenerPalabraAleatoria()
         {
+            var palabras = _categorias[_categoriaElegida];
             var random = new Random();
-            return _palabras[random.Next(_palabras.Count)];
+            return palabras[random.Next(palabras.Count)];
         }
     }
 }

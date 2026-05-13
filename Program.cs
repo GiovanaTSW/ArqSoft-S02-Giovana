@@ -1,6 +1,20 @@
 ﻿using Ahorcado;
 
-var repositorio = new PalabrasEnMemoria();
+Console.WriteLine("Elige una categoria:");
+Console.WriteLine("1. Arquitectura");
+Console.WriteLine("2. POO");
+Console.WriteLine("3. .NET");
+Console.Write("Opcion: ");
+
+string categoria = Console.ReadLine() switch
+{
+    "1" => "Arquitectura",
+    "2" => "POO",
+    "3" => ".NET",
+    _ => "POO"
+};
+
+var repositorio = new PalabrasEnMemoria(categoria);
 bool continuar = true;
 
 while (continuar)
@@ -20,7 +34,6 @@ while (continuar)
             ui.MostrarMensaje("Ya usaste esa letra.");
             continue;
         }
-
         motor.RegistrarLetra(letra);
     }
 
