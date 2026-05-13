@@ -1,48 +1,93 @@
-﻿using Ahorcado;
+﻿using AhorcadoTSW;
 
-Console.WriteLine("Elige una categoria:");
-Console.WriteLine("1. Arquitectura");
-Console.WriteLine("2. POO");
-Console.WriteLine("3. .NET");
-Console.Write("Opcion: ");
+Console.WriteLine("¿Qué juego quieres jugar?");
+Console.WriteLine("  1 — Ahorcado");
+Console.WriteLine("  2 — Viborita");
+Console.Write("Opción: ");
 
-string categoria = Console.ReadLine() switch
+var opcion = Console.ReadLine();
+
+if (opcion == "2")
 {
-    "1" => "Arquitectura",
-    "2" => "POO",
-    "3" => ".NET",
-    _ => "POO"
-};
+    // Lógica de la Viborita
+    var motorVibora = new MotorViborita(); // Sin el "Ahorcado."
+    var uiVibora = new ConsolaUIViborita(motorVibora); // Sin el "Ahorcado."
 
-var repositorio = new PalabrasEnMemoria(categoria);
-bool continuar = true;
+    Console.CursorVisible = false;
 
-while (continuar)
-{
-    var motor = new MotorAhorcado(repositorio);
-    var ui = new ConsolaUI(motor);
-
-    Console.WriteLine("=== AHORCADO ===");
-
-    while (!motor.Ganado() && !motor.Perdido())
+    while (!motorVibora.Ganado() && !motorVibora.Perdido())
     {
-        ui.MostrarTablero();
-        char letra = ui.PedirLetra();
+        uiVibora.MostrarTablero();
 
-        if (motor.LetraYaUsada(letra))
-        {
-            ui.MostrarMensaje("Ya usaste esa letra.");
-            continue;
-        }
-        motor.RegistrarLetra(letra);
+        var tecla = uiVibora.LeerTecla();
+
+        if (tecla == ConsoleKey.Q)
+            break;
+
+        if (tecla != ConsoleKey.NoName)
+            motorVibora.CambiarDireccion(tecla);
+
+        motorVibora.Avanzar();
+
+        Thread.Sleep(150);
     }
 
-    ui.MostrarTablero();
+    uiVibora.MostrarTablero();
 
-    if (motor.Ganado())
-        ui.MostrarMensaje($"\n¡Ganaste! La palabra era: {motor.PalabraSecreta}");
-    else
-        ui.MostrarMensaje($"\nPerdiste. La palabra era: {motor.PalabraSecreta}");
+    uiVibora.MostrarMensaje(motorVibora.Ganado()
+        ? "\n¡Ganaste! Llegaste a 10 puntos."
+        : "\nGame over.");
 
-    continuar = ui.PreguntarOtraVez();
+    Console.CursorVisible = true;
+}
+else
+{
+    // Tu lógica original del Ahorcado con Categorías
+    Console.WriteLine("\nElige una categoria:");
+    Console.WriteLine("1. Arquitectura");
+    Console.WriteLine("2. POO");
+    Console.WriteLine("3. .NET");
+    Console.Write("Opcion: ");
+
+    string categoria = Console.ReadLine() switch
+    {
+        "1" => "Arquitectura",
+        "2" => "POO",
+        "3" => ".NET",
+        _ => "POO"
+    };
+
+    var repositorio = new PalabrasEnMemoria(categoria);
+    bool continuar = true;
+
+    while (continuar)
+    {
+        var motorAhorcado = new MotorAhorcado(repositorio);
+        var uiAhorcado = new ConsolaUI(motorAhorcado);
+
+        Console.Clear();
+        Console.WriteLine("=== AHORCADO ===");
+
+        while (!motorAhorcado.Ganado() && !motorAhorcado.Perdido())
+        {
+            uiAhorcado.MostrarTablero();
+            char letra = uiAhorcado.PedirLetra();
+
+            if (motorAhorcado.LetraYaUsada(letra))
+            {
+                uiAhorcado.MostrarMensaje("Ya usaste esa letra.");
+                continue;
+            }
+            motorAhorcado.RegistrarLetra(letra);
+        }
+
+        uiAhorcado.MostrarTablero();
+
+        if (motorAhorcado.Ganado())
+            uiAhorcado.MostrarMensaje($"\n¡Ganaste! La palabra era: {motorAhorcado.PalabraSecreta}");
+        else
+            uiAhorcado.MostrarMensaje($"\nPerdiste. La palabra era: {motorAhorcado.PalabraSecreta}");
+
+        continuar = uiAhorcado.PreguntarOtraVez();
+    }
 }
