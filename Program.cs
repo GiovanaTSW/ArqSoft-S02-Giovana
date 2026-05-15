@@ -1,14 +1,58 @@
 ﻿using AhorcadoTSW;
 
-Console.WriteLine($"╔═════════════════════════════╗");
-Console.WriteLine($"║BIENVENIDO A LA SÚPERCONSOLA ║");
-Console.WriteLine($"╚═════════════════════════════╝");
-Console.WriteLine("¿Qué juego quieres jugar?");
-Console.WriteLine("  1 — Ahorcado");
-Console.WriteLine("  2 — Viborita");
-Console.Write("Opción: ");
+Console.ForegroundColor = ConsoleColor.Magenta;
+
+Console.WriteLine(@"
+██████╗ ██╗███████╗███╗   ██╗██╗   ██╗███████╗███╗   ██╗██╗██████╗  ██████╗ 
+██╔══██╗██║██╔════╝████╗  ██║██║   ██║██╔════╝████╗  ██║██║██╔══██╗██╔═══██╗
+██████╔╝██║█████╗  ██╔██╗ ██║██║   ██║█████╗  ██╔██╗ ██║██║██║  ██║██║   ██║
+██╔══██╗██║██╔══╝  ██║╚██╗██║╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║██║  ██║██║   ██║
+██████╔╝██║███████╗██║ ╚████║ ╚████╔╝ ███████╗██║ ╚████║██║██████╔╝╚██████╔╝
+╚═════╝ ╚═╝╚══════╝╚═╝  ╚═══╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝╚═╝╚═════╝  ╚═════╝ 
+");
+
+Console.ResetColor();
+
+Console.ForegroundColor = ConsoleColor.Cyan;
+
+Console.WriteLine($"╔══════════════════════════════════════════════════════════════════════════╗");
+Console.WriteLine($"║ >>>>>>>>>>>>>>>>>>>>>>>>>>> SÚPERCONSOLA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ║");
+Console.WriteLine($"╚══════════════════════════════════════════════════════════════════════════╝");
+
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine("Autora: Giovana Díaz");
+
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine("¿Qué juego quieres jugar? ");
+
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("  [1] > Ahorcado");
+Console.WriteLine("  [2] > Viborita");
+
+Console.ForegroundColor = ConsoleColor.DarkGray;
+Console.Write("Selecciona un juego: ");
+Console.Write("");
+
 
 var opcion = Console.ReadLine();
+Console.ForegroundColor = ConsoleColor.Green;
+
+string[] frames =
+{
+    "[    ]",
+    "[=   ]",
+    "[==  ]",
+    "[=== ]",
+    "[====]"
+};
+
+foreach (var frame in frames)
+{
+    Console.Clear();
+    Console.WriteLine("CARGANDO " + frame);
+    Thread.Sleep(250);
+}
+
 
 if (opcion == "2")
 {
@@ -57,6 +101,7 @@ if (opcion == "2")
 else
 {
     // Tu lógica original del Ahorcado con Categorías
+    Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("\nElige una categoria:");
     Console.WriteLine("1. Arquitectura");
     Console.WriteLine("2. POO");
