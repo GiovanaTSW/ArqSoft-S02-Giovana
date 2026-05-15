@@ -67,10 +67,7 @@ El proyecto trajo consigo dos juegos:
 
 ---
 
-# ¿CÓMO EJECUTAR EL PROYECTO?
-
-
-## Estructura del proyecto
+# ESTRUCTURA DEL PROYECTO
 
 ```bash
 
@@ -90,4 +87,29 @@ AhorcadoTSW/
 
 ---
 
+# ¿CÓMO EJECUTAR EL PROYECTO?
+
+1. Clonar el repositorio
+
+```bash
+git clone TU_REPOSITORIO
+```
+
+2. Abrir el proyecto en Visual Studio Community
+
+3. Ejecutar el proyecto
+
 ---
+
+# DATOS ACADÉMICOS
+
+- Escuela: Tecnológico de Software
+- Materia: Arquitectura de Software
+- Profesor: Jorge Javier Pedrozo Romero
+- Actividad: Actividad #06 – Práctica .NET: Refactorización
+- Alumna: Giovana Ruby Díaz Anduze
+- Grupo: 3A
+
+# CLÁUSULA DE IA
+
+Yo, Giovana Díaz declaro que he utilizado herramientas de inteligencia artificial para el diseño de los juegos al ejecutarse en la consola, asimismo para la corrección de errores y bugs al momento de realizar los commits y los branches.
