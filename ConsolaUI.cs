@@ -1,8 +1,15 @@
-﻿namespace Ahorcado
+﻿using AhorcadoTSW;
+
+namespace AhorcadoTSW
 {
     public class ConsolaUI
     {
         private readonly MotorAhorcado _motor;
+
+        private static readonly ConsoleColor[] ColoresArcoiris = new[]
+        {
+            ConsoleColor.Red
+        };
 
         public ConsolaUI(MotorAhorcado motor)
         {
@@ -54,5 +61,5 @@
             Console.WriteLine(etapas[6 - _motor.IntentosRestantes]);
         }
     }
-    
+
 }
