@@ -1,4 +1,6 @@
-﻿namespace AhorcadoTSW
+﻿using AhorcadoTSW;
+
+namespace AhorcadoTSW
 {
     public class ConsolaUI
     {
@@ -54,5 +56,5 @@
             Console.WriteLine(etapas[6 - _motor.IntentosRestantes]);
         }
     }
-    
+
 }

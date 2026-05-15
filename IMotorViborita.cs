@@ -90,7 +90,7 @@ namespace AhorcadoTSW
             while (_cuerpo.Contains(_comida));
         }
 
-        public bool Ganado() => Puntos >= 10;   // gana al llegar a 10 puntos
+        public bool Ganado() => Puntos >= 100;   // gana al llegar a 100 puntos
 
         public bool Perdido() => _perdido;
     }

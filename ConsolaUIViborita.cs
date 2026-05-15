@@ -4,6 +4,18 @@
     {
         private readonly MotorViborita _motor;
 
+        // Colores arcoíris para el cuerpo de la víbora
+        private static readonly ConsoleColor[] ColoresArcoiris = new[]
+        {
+            ConsoleColor.Red,
+            ConsoleColor.DarkYellow,
+            ConsoleColor.Yellow,
+            ConsoleColor.Green,
+            ConsoleColor.Cyan,
+            ConsoleColor.Blue,
+            ConsoleColor.Magenta
+        };
+
         public ConsolaUIViborita(MotorViborita motor)
         {
             _motor = motor;
@@ -12,32 +24,65 @@
         public void MostrarTablero()
         {
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine($"=== VIBORITA ===   Puntos: {_motor.Puntos}");
-            Console.WriteLine("+" + new string('-', _motor.Ancho) + "+");
+
+            // Encabezado más grande
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"╔══════════════════════════════════╗");
+            Console.WriteLine($"║   🐍 VÍBORITA   Puntos: {_motor.Puntos,-8}║");
+            Console.WriteLine($"╚══════════════════════════════════╝");
+            Console.ResetColor();
+
+            // Borde superior de la caja de juego (más grande)
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("╔" + new string('═', _motor.Ancho) + "╗");
+
+            var cuerpoLista = _motor.Cuerpo.ToList();
 
             for (int y = 0; y < _motor.Alto; y++)
             {
-                Console.Write("|");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("║");
 
                 for (int x = 0; x < _motor.Ancho; x++)
                 {
                     var pos = (x, y);
 
-                    if (_motor.Cuerpo.First() == pos)
-                        Console.Write("@");           // cabeza
+                    if (cuerpoLista[0] == pos)
+                    {
+                        // Cabeza siempre en verde brillante
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("@");
+                    }
                     else if (_motor.Cuerpo.Contains(pos))
-                        Console.Write("o");           // cuerpo
+                    {
+                        // Cuerpo en arcoíris según índice
+                        int indice = cuerpoLista.IndexOf(pos);
+                        Console.ForegroundColor = ColoresArcoiris[indice % ColoresArcoiris.Length];
+                        Console.Write("░");
+                    }
                     else if (_motor.Comida == pos)
-                        Console.Write("*");           // comida
+                    {
+                        // Comida en rojo brillante
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("*");
+                    }
                     else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.Write(" ");
+                    }
                 }
 
-                Console.WriteLine("|");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("║");
             }
 
-            Console.WriteLine("+" + new string('-', _motor.Ancho) + "+");
-            Console.WriteLine("Flechas: mover   |   Q: salir");
+            // Borde inferior
+            Console.WriteLine("╚" + new string('═', _motor.Ancho) + "╝");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("  Flechas: mover   |   Q: salir");
+            Console.ResetColor();
         }
 
         public ConsoleKey LeerTecla()
@@ -49,6 +94,6 @@
         }
 
         public void MostrarMensaje(string mensaje) =>
-            Console.WriteLine(mensaje);  // igual que en ConsolaUI ← reutiliza la idea
+            Console.WriteLine(mensaje);
     }
 }
