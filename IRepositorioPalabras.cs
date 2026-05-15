@@ -1,7 +1,6 @@
-﻿namespace Ahorcado
+﻿namespace AhorcadoTSW;
+
+public interface IRepositorioPalabras
 {
-    public interface IRepositorioPalabras
-    {
-        string ObtenerPalabraAleatoria();
-    }
+    string ObtenerPalabraAleatoria();
 }
