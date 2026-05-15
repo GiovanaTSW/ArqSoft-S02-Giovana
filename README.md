@@ -2,8 +2,8 @@
 
 Un proyecto realizado en C# y .NET en el que incluye dos minijuegos:
 
--> Ahorcado
--> Viborita
+- Ahorcado
+- Viborita
 
 Esta actividad fue desarrollada utilizando los conceptos vistos en la materia de Arquitectura de Software.
 
@@ -16,6 +16,7 @@ El proyecto trajo consigo dos juegos:
 ## AHORCADO & VIBORITA
 
 ¿Qué juego quieres jugar
+<<<<<<< HEAD
 
 | AHORCADO | VIBORITA|
 |---|---|
@@ -68,5 +69,16 @@ El proyecto trajo consigo dos juegos:
 ---
 
 
+=======
+>>>>>>> bbcdfb585860e95d8349eb9f5763acf094261134
+
+| AHORCADO | VIBORITA|
+|---|---|
+| Sistema de categorías | Movimiento en tiempo real |
+| Pistas automáticas | Sistema de puntos |
+| Sistema de puntos | Colisión |
+| Detección de victoria y derrota | Reinicio de partida |
+| Interfaz decorada en consola | Interfaz estilo arcade |
+| Colores dinámicos | Colores arcoíris en la serpiente |
 
 ---
