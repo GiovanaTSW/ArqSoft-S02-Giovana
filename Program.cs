@@ -9,36 +9,47 @@ var opcion = Console.ReadLine();
 
 if (opcion == "2")
 {
-    // Lógica de la Viborita
-    var motorVibora = new MotorViborita(); // Sin el "Ahorcado."
-    var uiVibora = new ConsolaUIViborita(motorVibora); // Sin el "Ahorcado."
-
     Console.CursorVisible = false;
+    bool seguirJugando = true;
 
-    while (!motorVibora.Ganado() && !motorVibora.Perdido())
+    while (seguirJugando)
     {
+        // Se crea instancia nueva cada partida para reiniciar el estado
+        var motorVibora = new MotorViborita();
+        var uiVibora = new ConsolaUIViborita(motorVibora);
+
+        Console.Clear();
+
+        while (!motorVibora.Ganado() && !motorVibora.Perdido())
+        {
+            uiVibora.MostrarTablero();
+
+            var tecla = uiVibora.LeerTecla();
+
+            if (tecla == ConsoleKey.Q)
+                break;
+
+            if (tecla != ConsoleKey.NoName)
+                motorVibora.CambiarDireccion(tecla);
+
+            motorVibora.Avanzar();
+
+            Thread.Sleep(150);
+        }
+
         uiVibora.MostrarTablero();
 
-        var tecla = uiVibora.LeerTecla();
+        uiVibora.MostrarMensaje(motorVibora.Ganado()
+            ? "\n¡Ganaste! Llegaste a 100 puntos."
+            : $"\nGame over. Puntos: {motorVibora.Puntos}");
 
-        if (tecla == ConsoleKey.Q)
-            break;
-
-        if (tecla != ConsoleKey.NoName)
-            motorVibora.CambiarDireccion(tecla);
-
-        motorVibora.Avanzar();
-
-        Thread.Sleep(150);
+        Console.Write("\n¿Quieres jugar otra vez? (s/n): ");
+        var respuesta = Console.ReadLine()?.ToLower();
+        seguirJugando = respuesta == "s";
     }
 
-    uiVibora.MostrarTablero();
-
-    uiVibora.MostrarMensaje(motorVibora.Ganado()
-        ? "\n¡Ganaste! Llegaste a 10 puntos."
-        : "\nGame over.");
-
     Console.CursorVisible = true;
+    Console.WriteLine("\n¡Hasta luego!");
 }
 else
 {

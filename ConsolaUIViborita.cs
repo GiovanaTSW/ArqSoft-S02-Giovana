@@ -26,21 +26,21 @@
             Console.SetCursorPosition(0, 0);
 
             // Encabezado más grande
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"╔══════════════════════════════════╗");
-            Console.WriteLine($"║   🐍 VÍBORITA   Puntos: {_motor.Puntos,-8}║");
-            Console.WriteLine($"╚══════════════════════════════════╝");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"╔════════════════════════════╗");
+            Console.WriteLine($"║ VÍBORITA   Puntos: {_motor.Puntos,-8}║");
+            Console.WriteLine($"╚════════════════════════════╝");
             Console.ResetColor();
 
             // Borde superior de la caja de juego (más grande)
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("╔" + new string('═', _motor.Ancho) + "╗");
 
             var cuerpoLista = _motor.Cuerpo.ToList();
 
             for (int y = 0; y < _motor.Alto; y++)
             {
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("║");
 
                 for (int x = 0; x < _motor.Ancho; x++)
@@ -50,15 +50,15 @@
                     if (cuerpoLista[0] == pos)
                     {
                         // Cabeza siempre en verde brillante
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write("@");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("▓");
                     }
                     else if (_motor.Cuerpo.Contains(pos))
                     {
                         // Cuerpo en arcoíris según índice
                         int indice = cuerpoLista.IndexOf(pos);
                         Console.ForegroundColor = ColoresArcoiris[indice % ColoresArcoiris.Length];
-                        Console.Write("░");
+                        Console.Write("▓");
                     }
                     else if (_motor.Comida == pos)
                     {
@@ -68,12 +68,12 @@
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.Write(" ");
                     }
                 }
 
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("║");
             }
 

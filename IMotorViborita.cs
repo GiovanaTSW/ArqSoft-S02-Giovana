@@ -5,8 +5,8 @@ namespace AhorcadoTSW
     public class MotorViborita : IMotorJuego
     {
         // — Tamaño del tablero —
-        public int Ancho { get; } = 20;
-        public int Alto { get; } = 15;
+        public int Ancho { get; } = 28;
+        public int Alto { get; } = 20;
 
         // — Estado de la víbora —
         private readonly LinkedList<(int x, int y)> _cuerpo = new();

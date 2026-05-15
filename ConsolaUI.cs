@@ -6,6 +6,11 @@ namespace AhorcadoTSW
     {
         private readonly MotorAhorcado _motor;
 
+        private static readonly ConsoleColor[] ColoresArcoiris = new[]
+        {
+            ConsoleColor.Red
+        };
+
         public ConsolaUI(MotorAhorcado motor)
         {
             _motor = motor;
