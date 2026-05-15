@@ -12,21 +12,47 @@ public class ConsolaUI
     public void MostrarTablero()
     {
         Console.Clear();
+
+        Console.ForegroundColor = ConsoleColor.Magenta;
+
+        Console.WriteLine("╔════════════════════════════╗");
+        Console.WriteLine("║         AHORCADO           ║");
+        Console.WriteLine("╚════════════════════════════╝");
+
+        Console.ResetColor();
+
+        Console.ForegroundColor = ConsoleColor.Red;
         MostrarAhorcado();
-        Console.WriteLine($"Intentos restantes: {_motor.IntentosRestantes}");
+
+        // TEXTO INFERIOR CYAN
+        Console.ForegroundColor = ConsoleColor.Cyan;
+
+        Console.WriteLine($"\nIntentos restantes: {_motor.IntentosRestantes}");
         Console.WriteLine($"Letras usadas: {string.Join(", ", _motor.LetrasUsadas)}");
 
         if (_motor.MostrarPista)
             Console.WriteLine($"Pista: la palabra empieza con '{_motor.PalabraSecreta[0]}'");
 
-        Console.Write("Palabra: ");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+
+        Console.Write("\nPalabra: ");
+
+
         foreach (char c in _motor.PalabraSecreta)
-            Console.Write(_motor.LetrasUsadas.Contains(c) ? c : '_');
+        {
+            if (_motor.LetrasUsadas.Contains(c))
+                Console.Write(c + " ");
+            else
+                Console.Write("_ ");
+        }
+
         Console.WriteLine();
+        Console.ResetColor();
     }
 
     public char PedirLetra()
     {
+        Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.Write("\nIngresa una letra: ");
         return Console.ReadLine()[0];
     }

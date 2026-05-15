@@ -14,20 +14,15 @@ Console.WriteLine(@"
 Console.ResetColor();
 
 Console.ForegroundColor = ConsoleColor.Cyan;
-
-Console.WriteLine($"╔══════════════════════════════════════════════════════════════════════════╗");
-Console.WriteLine($"║ >>>>>>>>>>>>>>>>>>>>>>>>>>> SÚPERCONSOLA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ║");
-Console.WriteLine($"╚══════════════════════════════════════════════════════════════════════════╝");
-
-Console.ForegroundColor = ConsoleColor.Cyan;
-Console.WriteLine("Autora: Giovana Díaz");
-
-Console.ForegroundColor = ConsoleColor.Cyan;
-Console.WriteLine("¿Qué juego quieres jugar? ");
-
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("  [1] > Ahorcado");
-Console.WriteLine("  [2] > Viborita");
+Console.WriteLine($"╔═════════════════════════════╗");
+Console.WriteLine($"║     >>> SÚPERCONSOLA <<<    ║");
+Console.WriteLine($"╠═════════════════════════════╣");
+Console.WriteLine($"║ ¿Qué juego quieres jugar?   ║");
+Console.WriteLine($"╠═════════════════════════════╣");
+Console.WriteLine($"║ [1] > Ahorcado              ║");
+Console.WriteLine($"╠═════════════════════════════╣");
+Console.WriteLine($"║ [2] > Viborita              ║");
+Console.WriteLine($"╚═════════════════════════════╝");
 
 Console.ForegroundColor = ConsoleColor.DarkGray;
 Console.Write("Selecciona un juego: ");
@@ -51,6 +46,7 @@ foreach (var frame in frames)
     Console.Clear();
     Console.WriteLine("CARGANDO " + frame);
     Thread.Sleep(250);
+    Console.ResetColor();
 }
 
 
@@ -102,12 +98,20 @@ else
 {
     // Tu lógica original del Ahorcado con Categorías
     Console.ForegroundColor = ConsoleColor.Magenta;
-    Console.WriteLine("\nElige una categoria:");
-    Console.WriteLine("1. Arquitectura");
-    Console.WriteLine("2. POO");
-    Console.WriteLine("3. .NET");
-    Console.WriteLine("4. Animales");
-    Console.Write("Opcion: ");
+    Console.WriteLine($"╔════════════════════════╗");
+    Console.WriteLine($"║  Elige una categoria:  ║");
+    Console.WriteLine($"╠════════════════════════╣");
+    Console.WriteLine($"║ [1] > Arquitectura     ║");
+    Console.WriteLine($"╠════════════════════════╣");
+    Console.WriteLine($"║ [2] > POO              ║");
+    Console.WriteLine($"╠════════════════════════╣");            
+    Console.WriteLine($"║ [3] > .NET             ║");
+    Console.WriteLine($"╠════════════════════════╣");
+    Console.WriteLine($"║ [4] > Animales         ║");
+    Console.WriteLine($"╚════════════════════════╝");
+
+    Console.ForegroundColor = ConsoleColor.DarkGray;
+    Console.Write("Selecciona una opción: ");
 
     string categoria = Console.ReadLine() switch
     {
@@ -127,6 +131,7 @@ else
         var uiAhorcado = new ConsolaUI(motorAhorcado);
 
         Console.Clear();
+        Console.ForegroundColor= ConsoleColor.Red;
         Console.WriteLine("=== AHORCADO ===");
 
         while (!motorAhorcado.Ganado() && !motorAhorcado.Perdido())
@@ -136,7 +141,8 @@ else
 
             if (motorAhorcado.LetraYaUsada(letra))
             {
-                uiAhorcado.MostrarMensaje("Ya usaste esa letra.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                uiAhorcado.MostrarMensaje(" [!] Ya usaste esa letra.");
                 continue;
             }
             motorAhorcado.RegistrarLetra(letra);
@@ -145,7 +151,7 @@ else
         uiAhorcado.MostrarTablero();
 
         if (motorAhorcado.Ganado())
-            uiAhorcado.MostrarMensaje($"\n¡Ganaste! La palabra era: {motorAhorcado.PalabraSecreta}");
+        uiAhorcado.MostrarMensaje($"\n¡Ganaste! La palabra era: {motorAhorcado.PalabraSecreta}");
         else
             uiAhorcado.MostrarMensaje($"\nPerdiste. La palabra era: {motorAhorcado.PalabraSecreta}");
 

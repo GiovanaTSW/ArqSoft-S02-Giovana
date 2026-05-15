@@ -22,6 +22,7 @@ public class Juego
     {
         Console.Clear();
         Console.WriteLine("=== AHORCADO ===");
+        Console.ResetColor();
         while (_intentosRestantes > 0)
         {
             MostrarTablero();
@@ -57,14 +58,30 @@ public class Juego
     {
         Console.Clear();
         MostrarAhorcado();
+
+        // Información abajo en cyan
+        Console.ForegroundColor = ConsoleColor.Cyan;
+
         Console.WriteLine($"Intentos restantes: {_intentosRestantes}");
         Console.WriteLine($"Letras usadas: {string.Join(", ", _letrasUsadas)}");
+
+
         if (_intentosRestantes <= 3)
             Console.WriteLine($"Pista: la palabra empieza con '{_palabraSecreta[0]}'");
-        Console.Write("Palabra: ");
+
+        Console.Write("\nPalabra: ");
+
         foreach (char c in _palabraSecreta)
-            Console.Write(_letrasUsadas.Contains(c) ? c : '_');
+        {
+            if (_letrasUsadas.Contains(c))
+                Console.Write(c + " ");
+            else
+                Console.Write("_ ");
+        }
+
         Console.WriteLine();
+
+        Console.ResetColor();
     }
 
     private void MostrarAhorcado()
