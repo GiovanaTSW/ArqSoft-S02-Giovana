@@ -15,8 +15,7 @@ El proyecto trajo consigo dos juegos:
 
 ## AHORCADO & VIBORITA
 
-¿Qué juego quieres jugar
-<<<<<<< HEAD
+### ¿Qué juego quieres jugar
 
 | AHORCADO | VIBORITA|
 |---|---|
@@ -68,17 +67,27 @@ El proyecto trajo consigo dos juegos:
 
 ---
 
+# ¿CÓMO EJECUTAR EL PROYECTO?
 
-=======
->>>>>>> bbcdfb585860e95d8349eb9f5763acf094261134
 
-| AHORCADO | VIBORITA|
-|---|---|
-| Sistema de categorías | Movimiento en tiempo real |
-| Pistas automáticas | Sistema de puntos |
-| Sistema de puntos | Colisión |
-| Detección de victoria y derrota | Reinicio de partida |
-| Interfaz decorada en consola | Interfaz estilo arcade |
-| Colores dinámicos | Colores arcoíris en la serpiente |
+## Estructura del proyecto
+
+```bash
+
+AhorcadoTSW/
+│
+├── Ahorcado.cs
+├── ConsolaUI.cs
+├── ConsolaUIViborita.cs
+├── IMotorJuego.cs
+├── IMotorViborita.cs
+├── IRepositorioPalabras.cs
+├── MotorAhorcado.cs
+├── PalabrasEnMemoria.cs
+├── Program.cs
+└── README.md
+```
+
+---
 
 ---
