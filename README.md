@@ -15,14 +15,58 @@ El proyecto trajo consigo dos juegos:
 
 ## AHORCADO & VIBORITA
 
-| ¿Qué juego quieres jugar |
+¿Qué juego quieres jugar
+
 | AHORCADO | VIBORITA|
-|---|
-| - Sistema de categorías | - Movimiento en tiempo real |
-| - Pistas automáticas | - Sistema de puntos |
-| - Sistema de puntos | - Colisión |
-| - Detección de victoria y derrota | - Reinicio de partida |
-| - Interfaz decorada en consola | - Interfaz estilo arcade |
-| - Colores dinámicos | - Colores arcoíris en la serpiente |
+|---|---|
+| Sistema de categorías | Movimiento en tiempo real |
+| Pistas automáticas | Sistema de puntos |
+| Sistema de puntos | Colisión |
+| Detección de victoria y derrota | Reinicio de partida |
+| Interfaz decorada en consola | Interfaz estilo arcade |
+| Colores dinámicos | Colores arcoíris en la serpiente |
+
+---
+
+## TECNOLOGÍAS UTILIZADAS
+
+| Tecnología | Uso |
+|---|---|
+| C# | Lenguaje principal |
+| .NET | Framework |
+| POO | Arquitectura del proyecto |
+| Consola | Interfaz visual |
+
+---
+
+## CAPTURAS DEL PROYECTO
+
+### Menú principal
+
+![Menu](Images/Menu_principal.png)
+
+---
+
+## Juego del Ahorcado
+
+![Ahorcado](Images/Ahorcado_juego.png)
+
+## Ganaste
+
+![Ahorcado](Images/Ahorcado_ganaste.png)
+
+## Perdiste
+
+![Ahorcado](Images/Ahorcado_perdiste.png)
+
+---
+
+## Juego de la Viborita
+
+![Viborita](Images/Viborita_perdiste.png)
+
+---
+
+
 
 ---
