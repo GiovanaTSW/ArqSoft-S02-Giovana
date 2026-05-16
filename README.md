@@ -46,29 +46,17 @@ El proyecto trajo consigo dos juegos:
 
 ## Juego de la Viborita
 
-![Viborita](Images/Viborita_perdiste.png)
+![Viborita2](Images/soloviborita.png)
 
 ---
 
 ### Menú principal
 
-La viborita es más difícil de ganas pues para eso tienes que llegar a 100 puntos.
+Branch por eso el menú se ve sin los cambios del master.
 
-![Menu](Images/Menu_principal.png)
+![Menu2](Images/mainmenu.png)
 
 ---
-
-## Juego del Ahorcado
-
-![Ahorcado](Images/Ahorcado_juego.png)
-
-## Ganaste
-
-![Ahorcado](Images/Ahorcado_ganaste.png)
-
-## Perdiste
-
-![Ahorcado](Images/Ahorcado_perdiste.png)
 
 # ESTRUCTURA DEL PROYECTO
 
