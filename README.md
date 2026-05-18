@@ -61,12 +61,6 @@ El proyecto trajo consigo dos juegos:
 
 ---
 
-## Juego de la Viborita
-
-![Viborita](Images/Viborita_perdiste.png)
-
----
-
 # ESTRUCTURA DEL PROYECTO
 
 ```bash
